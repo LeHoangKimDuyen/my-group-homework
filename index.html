@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân - Thiết Kế Web</title>
+    <style>
+        /* CSS Variables - Bảng màu chủ đạo theo yêu cầu */
+        :root {
+            --color-cream: #E3DFCE;      /* Kem cổ điển */
+            --color-slate: #94B1C8;      /* Xanh xám */
+            --color-burgundy: #4C050C;   /* Đỏ đô */
+            --color-brown: #1A0905;      /* Nâu đen */
+        }
+
+        /* Reset cơ bản và thiết lập typography */
+        body {
+            font-family: 'Georgia', serif; /* Font chữ có chân tạo nét cổ điển, tinh tế */
+            background-color: var(--color-cream);
+            color: var(--color-brown);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* 
+           Giao diện tổng quan:
+           Áp dụng phong cách hiện đại pha cổ điển, căn lề và sử dụng khoảng trắng tinh tế.
+        */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: var(--color-brown);
+            color: var(--color-cream);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(26, 9, 5, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-slate);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--color-cream);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-slate);
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            color: var(--color-burgundy);
+            margin-top: 0;
+        }
+
+        /* MAIN & SECTIONS */
+        main {
+            padding: 4rem 0;
+        }
+
+        section {
+            background-color: #fff; /* Tương phản nhẹ với nền kem */
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 16px; /* Hiệu ứng bo cong nhẹ ở góc cho container */
+            box-shadow: 0 4px 15px rgba(26, 9, 5, 0.05); /* Đổ bóng nhẹ tinh tế */
+        }
+
+        /* HERO / ABOUT SECTION */
+        #about {
+            text-align: center;
+            background-color: var(--color-slate);
+            color: var(--color-brown);
+        }
+        
+        #about h1 {
+            color: var(--color-brown);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background-color: var(--color-burgundy);
+            color: var(--color-cream);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 25px; /* Hiệu ứng bo cong cho nút bấm */
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background-color: var(--color-cream);
+            color: var(--color-burgundy);
+            border: 2px solid var(--color-burgundy);
+        }
+
+        /* PROJECTS SECTION */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: var(--color-cream);
+            padding: 2rem;
+            border-radius: 12px; /* Bo góc khung card */
+            border: 1px solid rgba(148, 177, 200, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--color-brown);
+        }
+
+        /* CONTACT SECTION */
+        #contact {
+            text-align: center;
+            border: 2px dashed var(--color-slate);
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--color-brown);
+            color: var(--color-slate);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      <header>: Khối Semantic đại diện cho phần đầu của trang (hoặc một section).
+      Thường chứa logo, tiêu đề trang và thanh điều hướng chính. 
+    -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">L.Ipsum</a>
+            
+            <!-- 
+              <nav>: Khối Semantic chứa các liên kết điều hướng chính.
+              Giúp trình duyệt và các công cụ hỗ trợ đọc hiểu đây là menu điều hướng của trang.
+            -->
+            <nav>
+                <ul>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 
+      <main>: Khối Semantic bọc toàn bộ nội dung chính, độc nhất của tài liệu.
+      Mỗi trang chỉ nên có một thẻ <main> để định hướng nội dung cốt lõi, loại bỏ header/footer/sidebar.
+    -->
+    <main class="container">
+
+        <!-- 
+          <section>: Khối Semantic chia trang thành các phần (section) có chủ đề riêng biệt.
+          Mỗi section thường nên có một tiêu đề (heading) đi kèm.
+        -->
+        <section id="about">
+            <h1>Tinh Tế & Cổ Điển</h1>
+            <p>Chào mừng bạn đến với không gian sáng tạo của tôi. Tôi là một nhà thiết kế web, yêu thích sự kết hợp giữa đường nét hiện đại và phong vị cổ điển.</p>
+            <p>Ipsum lorem adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Nghệ thuật không chỉ là những gì bạn nhìn thấy, mà là những gì bạn cảm nhận.</p>
+            <a href="#contact" class="btn">Hợp tác ngay</a>
+        </section>
+
+        <!-- SECTION 2: Các dự án -->
+        <section id="projects">
+            <h2>Dự Án Nổi Bật</h2>
+            <p>Dưới đây là một số dự án tiêu biểu mang đậm chất thẩm mỹ và sự chỉnh chu trong từng chi tiết.</p>
+            
+            <div class="project-grid">
+                <!-- 
+                  <article>: Khối Semantic bọc một thành phần nội dung độc lập, có thể tự đứng vững và tái sử dụng.
+                  Rất phù hợp để làm các thẻ (card) bài viết, thẻ dự án, hoặc bình luận.
+                -->
+                <article class="card">
+                    <h3>Khách Sạn La Belle</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Thiết kế website với tông màu đỏ đô sang trọng, khơi gợi cảm giác quý phái của những thập niên trước.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Tạp Chí Nghệ Thuật</h3>
+                    <p>Excepteur sint occaecat cupidatat non proident. Một giao diện tạp chí kết hợp giữa nền kem và xanh xám, tạo không gian đọc chữ nhẹ nhàng, thư giãn và đậm chất văn học.</p>
+                </article>
+                
+                <article class="card">
+                    <h3>Cửa Hàng Đồ Cổ</h3>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum. Trải nghiệm mua sắm đồ cổ trực tuyến mượt mà với những nút bấm bo cong mềm mại và typography cổ điển.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Liên hệ -->
+        <section id="contact">
+            <h2>Kết Nối Với Tôi</h2>
+            <p>Nullam vehicula, est ac aliquam bibendum, velit magna imperdiet libero, id cursus sapien turpis eget est. Nếu bạn muốn xây dựng một website mang đậm dấu ấn cá nhân, hãy để lại lời nhắn.</p>
+            <a href="mailto:hello@example.com" class="btn">Gửi Email</a>
+        </section>
+
+    </main>
+
+    <!-- 
+      <footer>: Khối Semantic đại diện cho phần chân trang (hoặc chân của một article/section).
+      Thường chứa thông tin bản quyền, liên hệ bổ sung, hoặc các liên kết phụ.
+    -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 L.Ipsum Portfolio. Thiết kế với sự tinh tế và đam mê.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* Reset margin mặc định của body */
+body {
+  margin: 0;
+  padding: 0;
+  background: #fffbf5;
+}
+
+/* 
+  Cách 1: Sử dụng chính .container làm Flexbox để căn giữa nội dung bên trong nó 
+  và cho .container chiếm toàn bộ màn hình (100vh).
+*/
+.container {
+  height: 100vh; /* Chiều cao toàn màn hình */
+  display: flex; /* Kích hoạt flexbox */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Tùy chỉnh thêm cho nội dung bên trong để dễ quan sát */
+.content {
+  color: #fffbf5;
+  background-color: rgb(71, 50, 35);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* --- Section mới dùng CSS Grid --- */
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tạo 3 cột bằng nhau */
+  gap: 20px; /* Khoảng cách giữa các cột 20px */
+  padding: 50px 20px;
+  max-width: 900px; /* Giới hạn chiều rộng tối đa */
+  height: 400px;
+  margin: 0 auto; /* Căn giữa section này trên trang */
+}
+
+.grid-card {
+  background-color: #365011; /* Màu nền xanh olive */
+  border-radius: 10px; /* Bo góc 10px */
+  padding: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,204 @@
+:root {
+  --bg-body: #f4f6f9;
+  --bg-card: #ffffff;
+  --text-main: #2c3e50;
+  --text-muted: #7f8c8d;
+
+  /* Bảng màu trang nhã */
+  --color-header: #1e293b;
+  --color-sidebar-left: #f1f5f9;
+  --color-sidebar-right: #f8fafc;
+  --color-footer: #0f172a;
+  --color-accent: #2563eb;
+  --color-border: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+       2. CẤU TRÚC LAYOUT CHÍNH BẰNG CSS GRID
+       ========================================== */
+.grid-container {
+  display: grid;
+  min-height: 100vh;
+
+  /* Cấu trúc cột: Sidebar Trái (240px) | Main (1fr) | Sidebar Phải (240px) */
+  grid-template-columns: 240px 1fr 240px;
+
+  /* Hàng: Header (auto) | Body Content (1fr) | Footer (auto) */
+  grid-template-rows: auto 1fr auto;
+
+  /* Phân vùng bằng grid-template-areas */
+  grid-template-areas:
+    "header  header  header"
+    "nav     main    aside"
+    "footer  footer  footer";
+
+  gap: 0px;
+}
+
+/* Định vị các khu vực theo grid-area */
+.site-header {
+  grid-area: header;
+}
+.site-nav {
+  grid-area: nav;
+}
+.site-main {
+  grid-area: main;
+}
+.site-aside {
+  grid-area: aside;
+}
+.site-footer {
+  grid-area: footer;
+}
+
+/* ==========================================
+       3. PHONG CÁCH CÁC PHÂN VÙNG & STICKY SIDEBAR
+       ========================================== */
+
+/* Header */
+.site-header {
+  background-color: var(--color-header);
+  color: #ffffff;
+  padding: 1.25rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.site-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Sticky Wrapper cho Sidebar */
+.sticky-content {
+  position: sticky;
+  top: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Sidebar Trái (Menu) */
+.site-nav {
+  background-color: var(--color-sidebar-left);
+  border-right: 1px solid var(--color-border);
+}
+.site-nav h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+.menu-list {
+  list-style: none;
+}
+.menu-list li {
+  margin-bottom: 0.5rem;
+}
+.menu-list a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+.menu-list a:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--color-accent);
+}
+
+/* Main Content */
+.site-main {
+  background-color: var(--bg-card);
+  padding: 2rem;
+}
+.site-main h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+.site-main p {
+  margin-bottom: 1.25rem;
+  color: #475569;
+}
+
+/* Sidebar Phải (Quảng cáo) */
+.site-aside {
+  background-color: var(--color-sidebar-right);
+  border-left: 1px solid var(--color-border);
+}
+.site-aside h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.ad-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.ad-card span {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--color-footer);
+  color: #94a3b8;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+       4. RESPONSIVE DESIGN (TABLET & MOBILE)
+       ========================================== */
+@media (max-width: 900px) {
+  .grid-container {
+    /* Chuyển thành 1 cột duy nhất */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    /* Xếp chồng thứ tự các vùng */
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+  }
+
+  .site-nav,
+  .site-aside {
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sticky-content {
+    position: static;
+    padding: 1.25rem;
+  }
+}

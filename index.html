@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện CSS Grid 5 Phần</title>
+    <style>
+        /* CSS Variables cho màu sắc */
+        :root {
+            --bg-color: #f4f7f6;
+            --header-bg: #4a90e2;
+            --footer-bg: #333333;
+            --sidebar-bg: #ffffff;
+            --main-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Reset cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Container của Grid */
+        .grid-container {
+            display: grid;
+            /* Thiết lập khu vực grid theo mô hình 5 phần */
+            grid-template-areas: 
+                "header header header"
+                "nav main aside"
+                "footer footer footer";
+            /* Thiết lập kích thước cột: Left Sidebar (250px), Main (1fr), Right Sidebar (250px) */
+            grid-template-columns: 250px 1fr 250px;
+            /* Thiết lập kích thước hàng */
+            grid-template-rows: auto 1fr auto;
+            /* Chiều cao tối thiểu bằng màn hình để cover toàn bộ view */
+            min-height: 100vh;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Gán class cho từng khu vực tương ứng */
+        header {
+            grid-area: header;
+            background-color: var(--header-bg);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        nav {
+            grid-area: nav;
+        }
+
+        main {
+            grid-area: main;
+            background-color: var(--main-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        aside {
+            grid-area: aside;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: var(--footer-bg);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Wrapper cho nội dung sidebar để sử dụng position: sticky trượt theo khi cuộn */
+        .sticky-wrapper {
+            position: sticky;
+            top: 20px; /* Cách đỉnh viewport một khoảng khi cuộn */
+            background-color: var(--sidebar-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            /* Thuộc tính của Grid container làm stretch các element con bên trong một cột mặc định */
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        header h1 {
+            color: white;
+            margin-bottom: 0;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+        
+        ul li a {
+            text-decoration: none;
+            color: var(--header-bg);
+            font-weight: 500;
+        }
+        
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive cho Tablet */
+        @media (max-width: 992px) {
+            .grid-container {
+                grid-template-areas: 
+                    "header header"
+                    "nav main"
+                    "aside aside"
+                    "footer footer";
+                grid-template-columns: 200px 1fr;
+            }
+        }
+
+        /* Responsive cho Mobile */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-areas: 
+                    "header"
+                    "nav"
+                    "main"
+                    "aside"
+                    "footer";
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-wrapper {
+                position: static; /* Tắt sticky trên mobile do layout xếp chồng dài */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        
+        <!-- 1. Header -->
+        <header>
+            <h1>My Website</h1>
+        </header>
+
+        <!-- 2. Sidebar Trái (Menu) -->
+        <nav>
+            <div class="sticky-wrapper">
+                <h2>Menu Chính</h2>
+                <ul>
+                    <li><a href="#">🏠 Trang chủ</a></li>
+                    <li><a href="#">ℹ️ Giới thiệu</a></li>
+                    <li><a href="#">🛠️ Dịch vụ</a></li>
+                    <li><a href="#">📦 Sản phẩm</a></li>
+                    <li><a href="#">📞 Liên hệ</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- 3. Main Content -->
+        <main>
+            <h2>Nội Dung Chính (Main Content)</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim. Mauris euismod hendrerit nisi, quis aliquam nunc mattis quis. Proin faucibus odio eget interdum rhoncus. Suspendisse potenti. Donec varius dolor ac risus iaculis, vitae consectetur dolor efficitur. Mauris tempor purus eu magna viverra suscipit.</p>
+            <p>Integer sit amet sollicitudin ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi id elit vitae arcu pulvinar vulputate. Vestibulum condimentum leo ac turpis malesuada, non vehicula lorem laoreet. Donec at est sapien. Quisque tristique metus quis accumsan hendrerit.</p>
+            <p>Fusce eu elit nisl. Vivamus ac magna in lacus malesuada elementum in a dui. Nullam ac mi quis erat rhoncus auctor id eget ligula. Sed vehicula ex eu elit facilisis condimentum. Etiam tristique, orci quis elementum tristique, nulla neque vulputate felis, nec fermentum diam dui vel diam.</p>
+            <p>Aenean ut lorem nec dolor vulputate porta sed eget libero. Suspendisse potenti. Ut sit amet tortor eros. In scelerisque, sapien in lacinia feugiat, nunc dolor vestibulum nisl, sed finibus tortor mauris a urna. Praesent sollicitudin justo vel nisl fermentum, ut finibus libero tempus.</p>
+            <p>Nulla facilisi. Aenean fringilla justo eget dolor ultrices, ac hendrerit ipsum volutpat. Proin efficitur lorem euismod risus luctus, eget ullamcorper lorem pulvinar. Nunc vitae eros vestibulum, cursus odio non, posuere neque. Aenean aliquet lectus quis sem tincidunt varius.</p>
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras eleifend vel mi condimentum finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam laoreet turpis vel dui fermentum efficitur. Integer at velit id nisl tempus laoreet eget id tellus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim. Mauris euismod hendrerit nisi, quis aliquam nunc mattis quis. Proin faucibus odio eget interdum rhoncus. Suspendisse potenti. Donec varius dolor ac risus iaculis, vitae consectetur dolor efficitur. Mauris tempor purus eu magna viverra suscipit.</p>
+            <p>Integer sit amet sollicitudin ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi id elit vitae arcu pulvinar vulputate. Vestibulum condimentum leo ac turpis malesuada, non vehicula lorem laoreet. Donec at est sapien. Quisque tristique metus quis accumsan hendrerit.</p>
+            <p>Aenean ut lorem nec dolor vulputate porta sed eget libero. Suspendisse potenti. Ut sit amet tortor eros. In scelerisque, sapien in lacinia feugiat, nunc dolor vestibulum nisl, sed finibus tortor mauris a urna. Praesent sollicitudin justo vel nisl fermentum, ut finibus libero tempus.</p>
+        </main>
+
+        <!-- 4. Sidebar Phải (Quảng cáo) -->
+        <aside>
+            <div class="sticky-wrapper">
+                <h2>Quảng Cáo</h2>
+                <div style="background-color: #f0f0f0; padding: 60px 20px; text-align: center; border: 2px dashed #ccc; margin-bottom: 20px; border-radius: 4px;">
+                    Banner 1
+                </div>
+                <div style="background-color: #f0f0f0; padding: 60px 20px; text-align: center; border: 2px dashed #ccc; border-radius: 4px;">
+                    Banner 2
+                </div>
+            </div>
+        </aside>
+
+        <!-- 5. Footer -->
+        <footer>
+            <p>&copy; 2026 My Website. Thiết kế chuẩn CSS Grid.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

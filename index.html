@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Cá Nhân - Thiết Kế Web</title>
+    <!-- Nhúng CSS từ file style.css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-content">
+        <a href="#" class="logo">L.Ipsum</a>
+        <nav>
+          <ul>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#projects">Dự án</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 
+      Layout Wrapper sử dụng CSS Grid
+      Trên Desktop: 2 cột (Sidebar + Main)
+      Trên Mobile (<768px): 1 cột
+    -->
+    <div class="layout-wrapper">
+      <!-- SIDEBAR: Sẽ chuyển lên đầu trang trên màn hình nhỏ -->
+      <aside class="sidebar">
+        <h3>Hồ Sơ Cá Nhân</h3>
+        <p>
+          Nhà thiết kế web với đam mê giao thoa giữa nghệ thuật cổ điển và công
+          nghệ hiện đại. Luôn tìm kiếm sự hoàn hảo trong từng pixel.
+        </p>
+
+        <h4>Kỹ Năng Nổi Bật</h4>
+        <ul class="skills-list">
+          <li>Giao diện UI/UX</li>
+          <li>HTML5 & CSS3</li>
+          <li>Thiết kế tương tác</li>
+          <li>Responsive Design</li>
+        </ul>
+      </aside>
+
+      <!-- NỘI DUNG CHÍNH -->
+      <main class="content-area">
+        <section id="about">
+          <h1>Tinh Tế & Cổ Điển</h1>
+          <p>
+            Chào mừng bạn đến với không gian sáng tạo của tôi. Tôi là một nhà
+            thiết kế web, yêu thích sự kết hợp giữa đường nét hiện đại và phong
+            vị cổ điển.
+          </p>
+          <p>
+            Ipsum lorem adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Nghệ thuật không chỉ là những gì bạn
+            nhìn thấy, mà là những gì bạn cảm nhận.
+          </p>
+          <a href="#contact" class="btn">Hợp tác ngay</a>
+        </section>
+
+        <section id="projects">
+          <h2>Dự Án Nổi Bật</h2>
+          <p>
+            Dưới đây là một số dự án tiêu biểu mang đậm chất thẩm mỹ và sự chỉnh
+            chu trong từng chi tiết.
+          </p>
+
+          <div class="project-grid">
+            <article class="card">
+              <h3>Khách Sạn La Belle</h3>
+              <p class="meta-text">Hoàn thành: 2025</p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore. Thiết kế website với tông màu đỏ đô sang trọng.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Tạp Chí Nghệ Thuật</h3>
+              <p class="meta-text">Hoàn thành: 2024</p>
+              <p>
+                Excepteur sint occaecat cupidatat non proident. Một giao diện
+                tạp chí nhẹ nhàng, thư giãn và đậm chất văn học.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Cửa Hàng Đồ Cổ</h3>
+              <p class="meta-text">Hoàn thành: 2026</p>
+              <p>
+                Sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Trải nghiệm mua sắm mượt mà với những nút bấm bo cong mềm mại.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2>Kết Nối Với Tôi</h2>
+          <p>
+            Nullam vehicula, est ac aliquam bibendum, velit magna imperdiet
+            libero. Nếu bạn muốn xây dựng một website mang đậm dấu ấn cá nhân,
+            hãy để lại lời nhắn.
+          </p>
+          <a href="mailto:hello@example.com" class="btn">Gửi Email</a>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 L.Ipsum Portfolio. Thiết kế với sự tinh tế và đam mê.</p>
+      </div>
+    </footer>
+  </body>
+</html>
